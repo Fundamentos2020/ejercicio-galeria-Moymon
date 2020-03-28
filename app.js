@@ -7,17 +7,21 @@ function cargarImagenes(e) {
 
      // Leer las variables
 
-     const NumberSelect = document.getElementById('numero').value;
-
+     const NumberSelectI = document.getElementById('numeroI').value;
+     const NumberSelectP = document.getElementById('numeroP').value;
     
 
      let url = '';
      url += 'https://picsum.photos/v2/list?';
      //Si se ingreso cantidad hacer algo
-     
-     if(NumberSelect !== '') {
-          url += `page=${0}&`;
-          url += `limit=${NumberSelect}`;
+     const newLimit = 100/NumberSelectI;
+     numeroP.max=newLimit;
+     numeroP.value="1";
+
+     if(NumberSelectI !== '' && NumberSelectP !=='') {
+          
+          url += `page=${NumberSelectP}&`;
+          url += `limit=${NumberSelectI}`;
      }
      console.log(url);
      
